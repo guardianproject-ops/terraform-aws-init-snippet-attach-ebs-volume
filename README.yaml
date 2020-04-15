@@ -1,0 +1,55 @@
+---
+#
+# This is the canonical configuration for the `README.md`
+# Run `make readme` to rebuild the `README.md`
+#
+
+# Name of this project
+name: terraform-aws-init-snippet-attach-ebs-volume
+
+# License of this project
+license: "AGPL3"
+
+# Canonical GitLab repo
+gitlab_repo: guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume
+
+# Badges to display
+badges: []
+
+# Short description of this project
+description: |-
+
+  This is a terraform module that creates an init snippet that will attach an
+  EBS volume to the instance.  This snippet requires that the instance has an
+  IAM instance profile which grants it the access needed to find and attach the
+  EBS volume.
+
+  There are other modules in the Guardian Project Ops Collection which can
+  create EBS volumes with IAM profiles for each volume.
+
+  Attaching the EBS  volume will loop until it succeeds.
+
+# How to use this project
+usage: |-
+
+  ```hcl
+  module "init_snippet_ebs_volume" {
+    source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume?ref=tags/0.1.0"
+    namespace       = var.namespace
+    stage           = var.stage
+    delimiter       = var.delimiter
+    tags            = var.tags
+  }
+  ```
+
+related: []
+
+include:
+  - "docs/terraform.md"
+
+funded_by_cdr: true
+# Contributors to this project
+contributors:
+  - name: "Abel Luck"
+    gitlab: "abelxluck"
+    gravatar: 0f605397e0ead93a68e1be26dc26481a
