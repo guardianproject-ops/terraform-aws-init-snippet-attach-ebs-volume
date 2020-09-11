@@ -75,21 +75,19 @@ It's free and open source made available under the the [GNU Affero General Publi
 
 
 
+
 ## Usage
 
 
 **IMPORTANT:** The `master` branch is used in `source` just as an example. In your code, do not pin to `master` because there may be breaking changes between releases.
-Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume/releases).
+Instead pin to the release tag (e.g. `?ref=tags/x.y.z`) of one of our [latest releases](https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume/-/tags).
 
 
 
 ```hcl
 module "init_snippet_ebs_volume" {
-  source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume?ref=tags/0.1.0"
-  namespace       = var.namespace
-  stage           = var.stage
-  delimiter       = var.delimiter
-  tags            = var.tags
+  source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume?ref=master"
+  volume_id       = module.persistent_ebs.ebs_volume.id
 }
 ```
 
@@ -228,6 +226,7 @@ projects][gitlab] and [non-ops projects][nonops], follow us on
 
 
 
+
 **This project is also funded by the [Center for Digital Resilience][cdr].**
 
 [<img src="https://gitlab.com/digiresilience/web/digiresilience.org/-/raw/master/assets/images/cdr-logo-gray-256w.png"/>][website]
@@ -236,6 +235,7 @@ CDR builds [resilient systems][cdr-tech] to keep civil society safe online and e
 activists to regain civic space. We offer a variety of digital wellness
 services through local partner organizations. Interested? [Email
 us][cdr-email].
+
 
 
 

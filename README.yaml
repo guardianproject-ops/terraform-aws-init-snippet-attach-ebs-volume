@@ -34,11 +34,8 @@ usage: |-
 
   ```hcl
   module "init_snippet_ebs_volume" {
-    source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume?ref=tags/0.1.0"
-    namespace       = var.namespace
-    stage           = var.stage
-    delimiter       = var.delimiter
-    tags            = var.tags
+    source          = "git::https://gitlab.com/guardianproject-ops/terraform-aws-init-snippet-attach-ebs-volume?ref=master"
+    volume_id       = module.persistent_ebs.ebs_volume.id
   }
   ```
 
